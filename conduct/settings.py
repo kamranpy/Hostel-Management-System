@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'supervisory.apps.SupervisoryConfig',
     'django_filters',
     'crispy_forms',
+
+    'storages',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -82,11 +84,12 @@ WSGI_APPLICATION = 'conduct.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'hmsdb',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost'
+        'USER': 'kamran',
+        'PASSWORD': 'kamranpy',
+        'HOST': 'db-1.ckraxyc8xpqt.us-west-2.rds.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
@@ -136,3 +139,14 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+
+
+#S3 BUCKETS CONFIG
+
+AWS_ACCESS_KEY_ID = 'AKIAWSIJ3BETTKDJ64R2'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'kamran-hms-bucket'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
