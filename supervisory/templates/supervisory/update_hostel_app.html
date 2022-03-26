@@ -1,0 +1,112 @@
+{% extends 'supervisory/main.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<style>
+    #headers{
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 20px;
+        }
+
+</style>
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="card card-body">
+            <h1 align="center"> Update Student Application! </h1>
+            <hr>
+
+<form action="" method="post" autocomplete="off" enctype="multipart/form-data">
+    {% csrf_token %}
+
+        <h5 id="headers" class="bg-primary text-white">General Information</h5>
+        <div class="row">
+
+                <div class="col-md-6">
+                    {{form.customer|as_crispy_field}}
+                </div>
+
+                <div class="col-md-6">
+                    {{form.hostel|as_crispy_field}}
+                </div>
+
+        </div>
+
+        <div class="row">
+
+                <div class="col-md-6">
+                    {{form.mess|as_crispy_field}}
+                </div>
+
+                <div class="col-md-6">
+                    {{form.ac|as_crispy_field}}
+                </div>
+
+        </div>
+
+        <div class="row">
+
+                    <div class="col-md-6">
+                        {{form.duration|as_crispy_field}}
+                    </div>
+
+                    <div class="col-md-6">
+                        {{form.note|as_crispy_field}}
+                    </div>
+
+            </div>
+
+    <div class="row">
+
+                <div class="col-md-6">
+                    {{form.challan_no|as_crispy_field}}
+                </div>
+
+                <div class="col-md-6">
+                    {{form.upload_challan}}
+                </div>
+
+                <div class="col-md-12">
+                    <hr>
+                    <b> The Total Fee is Rs. {{total_fee}}/- Please verify the Challan carefully! </b>
+                    <hr>
+                </div>
+
+        </div>
+
+
+        <h5 id="headers" class="bg-primary text-white">For Office Use (Room Allocation / Acceptance / Rejection)</h5>
+        <div class="row">
+
+                <div class="col-md-6">
+                    {{form.rooms|as_crispy_field}}
+                </div>
+
+                <div class="col-md-6">
+                    {{form.app_status|as_crispy_field}}
+                </div>
+
+        </div>
+
+        <div class="row">
+
+                <div class="col-md-6">
+                    {{form.feeStatus|as_crispy_field}}
+                </div>
+
+                <div class="col-md-6">
+                    {{form.date_due|as_crispy_field}}
+                </div>
+
+        </div>
+
+    <input class="btn btn-sm btn-info" type="submit" name="Submit">
+</form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

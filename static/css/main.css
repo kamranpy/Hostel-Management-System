@@ -1,0 +1,19 @@
+{% load static %}
+
+
+.jumbotron {
+    background: rgba(204, 204, 204, 0.2);
+}
+
+#logo{
+    }
+
+    body{
+        background:
+
+         url("/static/images/bg-img6.jpg") 50% 0 no-repeat fixed;
+    }
+
+    #total-users, #orders-delivered, #orders-pending{
+        background-color: lightgrey;
+    }

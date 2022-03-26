@@ -1,0 +1,41 @@
+{% extends 'supervisory/main.html' %}
+
+{% block content %}
+
+
+<div class="jumbotron">
+    <div class="col-md">
+        <div class="card card-body">
+            <h1 align="center"> Room Details </h1>
+            <hr>
+            <table class="table table-sm">
+                <tr>
+                    <th>Serial No.</th>
+                    <th>Hostel Name</th>
+                    <th>Room Name</th>
+                    <th>Mess Eligibility</th>
+                    <th>AC / Cooler / Heater Eligibility</th>
+                    <th>Fee Status</th>
+                    <th>Due Date</th>
+                </tr>
+
+                {% for room in rooms %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{room.hostel}}</td>
+                        <td>{{room.rooms}}</td>
+                        <td>{{room.mess}}</td>
+                        <td>{{room.ac}}</td>
+                        <td>{{room.feeStatus}}</td>
+                        <td>{{room.date_due}}</td>
+                    </tr>
+                {% endfor %}
+
+
+            </table>
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,35 @@
+{% extends 'supervisory/main.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="card card-body">
+            <h1 align="center">Rooms Detail</h1><hr>
+
+            <table class="table table-hover">
+                <a class="btn btn-sm btn-primary" href="{% url 'create_room' %}"><B>Add new Room!</B></a>
+                <tr>
+                    <th>Serial No.</th>
+                    <th>Hostel Name</th>
+                    <th>Room Name</th>
+                    <th> Update </th>
+                </tr>
+
+                {% for room in rooms %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{room.rHostelName}}</td>
+                        <td>{{room.roomName}}</td>
+                        <td><a class="btn btn-sm btn-info" href="{% url 'update_room' room.id %}">Update</a>  </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

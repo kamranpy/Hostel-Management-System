@@ -1,0 +1,35 @@
+{% extends 'supervisory/main.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="card card-body">
+            <h1 align="center"> Create new Hostel </h1><hr>
+
+            <hr>
+
+<form action="" method="post">
+    {% csrf_token %}
+
+        <div class="row">
+
+                <div class="col-md-6">
+                    {{form.hostelName|as_crispy_field}}
+                </div>
+
+                <div class="col-md-6">
+                    {{form.hostelRooms|as_crispy_field}}
+                </div>
+
+        </div>
+
+    <input class="btn btn-sm btn-info" type="submit" name="Submit">
+</form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
