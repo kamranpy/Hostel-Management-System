@@ -82,11 +82,12 @@ WSGI_APPLICATION = 'conduct.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'hmsdb',
-        'USER': 'root',
+        'USER': 'postgres',
         'PASSWORD': '',
-        'HOST': 'localhost'
+        'HOST': 'localhost',
+        'PORT': '54324'
     }
 }
 
