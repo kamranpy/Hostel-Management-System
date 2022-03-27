@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'supervisory.apps.SupervisoryConfig',
     'django_filters',
     'crispy_forms',
+
+    'storages',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -80,16 +82,33 @@ WSGI_APPLICATION = 'conduct.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
+'''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'hmsdb',
+<<<<<<< HEAD
         'USER': 'postgres',
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '54324'
+=======
+        'USER': 'kamran',
+        'PASSWORD': 'kamranpy',
+        'HOST': 'db-1.ckraxyc8xpqt.us-west-2.rds.amazonaws.com',
+        'PORT': '5432'
+    }
+}'''
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+>>>>>>> c07017611f64415e620d543692ef9086a83760e4
     }
 }
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -137,3 +156,14 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+
+
+#S3 BUCKETS CONFIG
+
+AWS_ACCESS_KEY_ID = 'AKIAWSIJ3BETTKDJ64R2'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'kamran-hms-bucket'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
